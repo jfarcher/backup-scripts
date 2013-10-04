@@ -6,3 +6,6 @@ For example: /home/jon/Maildir would be backed up as jon
 
 This is currently used to to backup to an external USB hard disk, which is mounted at the beginning of the script. a directory is created for each user found, and 12 directories beneath this.
 The initial backup is a complete rsync of the maildir, but subsequent hourly (scheduled by cron) are rotated versions of this directory using hardlinks. So essentially only changes are stored extra, not 12 copies of said directory.
+
+backup-config.sh:
+This is a really simple script to take a tarball copy of the /etc directory. Nothing exciting really, just schedule it in as a cron job (I do it weekly) and away you go. Currently takes the copy to an external hard disk drive which is mounted at the top of the script.
