@@ -18,6 +18,7 @@ fi
 for DIR in `find /home/ -name "Maildir" -print`; do
         NAME=`echo $DIR|awk -F\/ {' print $3 '}`
 #	NAME="accounts"
+#Need to create a loop for this, and also an if statement to create the dir if it doesn't exist.
 echo "Running hourly backup for $NAME"
 	mv /backup/Maildirs/$NAME/Maildir.{12,tmp}
 	rm /backup/Maildirs/$NAME/dumptime.12
