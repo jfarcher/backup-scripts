@@ -54,7 +54,7 @@ echo "Running hourly backup for $NAME"
 
 
 
-# Remove semaphore
+#Remove semaphore
 umount /backup
 rm ${sem}
 
