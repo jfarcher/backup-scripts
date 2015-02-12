@@ -12,7 +12,7 @@ fi
 /usr/bin/ssh -f -L 3307:127.0.0.1:3306 $REMOTE_USER@$REMOTE_HOST -p $REMOTE_SSH_PORT  sleep 20
 /usr/bin/mysqldump $REMOTE_SQL_DB -h 127.0.0.1 -P 3307 --password=$REMOTE_SQL_PW > /store/backup/$BACKUP_NAME/sqlbackup-$6-$2-$3.sql
 #sleep 20
-/usr/bin/rsync -a -e "ssh -p 10022" $REMOTE_USER@$REMOTE_HOST:$REMOTE_WWW/. $LOCAL_WWW
+/usr/bin/rsync -a -e "ssh -p $REMOTE_SSH_PORT" $REMOTE_USER@$REMOTE_HOST:$REMOTE_WWW/. $LOCAL_WWW
 if [[ ! -z "`mysql -qfsBe "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME='$LOCAL_SQL_DB'" 2>&1`" ]];
 then
   echo "DATABASE ALREADY EXISTS"
